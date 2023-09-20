@@ -11,4 +11,4 @@ echo | curl -X 'POST' \
   }'\
   >> /usr/src/assignment/log.txt
 
-exit
+# exit
