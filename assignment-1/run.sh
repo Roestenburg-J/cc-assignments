@@ -7,5 +7,5 @@ docker run \
   --name shortlived-container \
   --volume "$(pwd)/assignment":/usr/src/assignment\
   --network assignment-1-network\
-  shortlived-container
+  image/shortlived-container:latest
   
