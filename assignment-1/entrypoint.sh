@@ -1,5 +1,3 @@
-
-
 echo | curl -X 'POST' \
   'http://notifications-service:3000/api/notify' \
   -H 'accept: text/plain; charset=utf-8' \

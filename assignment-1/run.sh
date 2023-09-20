@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build -t image/shortlived-container .
+docker build -t image/shortlived-container:latest .
 
 docker run \
   -d --rm \

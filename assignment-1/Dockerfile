@@ -10,4 +10,4 @@ VOLUME ["/usr/src/assignment"]
 WORKDIR /usr/src/app
 COPY entrypoint.sh .
 
-CMD ["./entrypoint.sh", "../assignment/log"]
+CMD ["./entrypoint.sh", "../assignment/log.txt"]
