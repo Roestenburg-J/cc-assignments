@@ -8,4 +8,6 @@ docker run \
   --volume "$(pwd)/assignment":/usr/src/assignment\
   --network assignment-1-network\
   image/shortlived-container:latest
+
   
+
