@@ -2,7 +2,7 @@
 
 FROM busybox:latest
 
-RUN mkdir -p /usr/src/assignment && \
+RUN mkdir -p /usr/src/assignment2 && \
     touch /usr/src/assignment/log.txt
 
 VOLUME ["/usr/src/assignment"]
