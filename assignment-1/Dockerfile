@@ -3,7 +3,7 @@
 FROM busybox:latest
 
 RUN mkdir -p /usr/src/assignment && \
-    sudo touch /usr/src/assignment/log.txt
+    touch /usr/src/assignment/log.txt
 
 VOLUME ["/usr/src/assignment"]
 
