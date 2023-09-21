@@ -7,6 +7,10 @@ log_error() {
   echo "Error: $1" >> "$log_file"
 }
 
+# Enable error checking and debugging
+set -e
+set -x
+
 # Execute the curl command
 # curl_output=$(curl -X 'POST' \
 #   'http://notifications-service:3000/api/notify' \
@@ -29,5 +33,8 @@ else
   # Append the output of curl to the log file
   echo "$curl_output" >> "$log_file"
 fi
+
+# Disable debugging
+set +x
 
 exit 0
