@@ -20,14 +20,19 @@ log_error() {
 #       "cipher_data": "D5qnEHeIrTYmLwYX.hSZNb3xxQ9MtGhRP7E52yv2seWo4tUxYe28ATJVHUi0J++SFyfq5LQc0sTmiS4ILiM0/YsPHgp5fQKuRuuHLSyLA1WR9YIRS6nYrokZ68u4OLC4j26JW/QpiGmAydGKPIvV2ImD8t1NOUrejbnp/cmbMDUKO1hbXGPfD7oTvvk6JQVBAxSPVB96jDv7C4sGTmuEDZPoIpojcTBFP2xA"
 #   }')
 
-curl_output=$(echo "Worked" >> "$log_file")
 
-# Check the exit status of the curl command
-if [ $? -ne 0 ]; then
-  log_error "Failed to execute curl command"
+# # Check the exit status of the curl command
+# if [ $? -ne 0 ]; then
+#   log_error "Failed to execute curl command"
+# else
+#   # Append the output of curl to the log file
+#   echo "$curl_output" >> "$log_file"
+# fi
+
+if docker network inspect assignment-1-network | grep '"Containers": {"container_id":' > /dev/null; then
+  echo "Container is part of the my-network network" >> "$log_file"
 else
-  # Append the output of curl to the log file
-  echo "$curl_output" >> "$log_file"
+  log_error "Container is not part of the my-network network"
 fi
 
 exit 0
