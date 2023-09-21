@@ -1,8 +1,9 @@
 # Dockerfile
 
-FROM busybox:latest
+FROM ubuntu:latest
 
-RUN mkdir -p /usr/src/assignment && \
+RUN apt-get update && apt-get install -y docker.io && \
+    mkdir -p /usr/src/assignment && \
     touch /usr/src/assignment/log.txt
 
 VOLUME ["/usr/src/assignment"]
