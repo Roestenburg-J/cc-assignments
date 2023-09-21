@@ -29,10 +29,27 @@ log_error() {
 #   echo "$curl_output" >> "$log_file"
 # fi
 
-if docker network inspect assignment-1-network | grep '"Containers": {"container_id":' > /dev/null; then
-  echo "Container is part of the my-network network" >> "$log_file"
+# Name of the network to check
+network_name="assignment-1-network"
+
+# Use docker network inspect to get information about the network
+network_info=$(docker network inspect "$network_name" 2>&1)
+
+# Check if there was an error while inspecting the network
+if [ $? -ne 0 ]; then
+  log_error "Failed to inspect network $network_name"
 else
-  log_error "Container is not part of the my-network network"
+  # Extract container IDs from the network information
+  container_ids=$(echo "$network_info" | jq -r '.[0].Containers | keys[]')
+
+  if [ -z "$container_ids" ]; then
+    log_message "No containers found in network $network_name"
+  else
+    log_message "Containers in network $network_name:"
+    for container_id in $container_ids; do
+      log_message "- $container_id"
+    done
+  fi
 fi
 
 exit 0
