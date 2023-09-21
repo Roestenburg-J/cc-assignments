@@ -20,15 +20,15 @@ log_error() {
 #       "cipher_data": "D5qnEHeIrTYmLwYX.hSZNb3xxQ9MtGhRP7E52yv2seWo4tUxYe28ATJVHUi0J++SFyfq5LQc0sTmiS4ILiM0/YsPHgp5fQKuRuuHLSyLA1WR9YIRS6nYrokZ68u4OLC4j26JW/QpiGmAydGKPIvV2ImD8t1NOUrejbnp/cmbMDUKO1hbXGPfD7oTvvk6JQVBAxSPVB96jDv7C4sGTmuEDZPoIpojcTBFP2xA"
 #   }')
 
-curl_output=$(docker network inspect assignment-1-network)
+curl_output=$(docker info)
 
 # Check the exit status of the curl command
-if [ $? -ne 0 ]; then
-  log_error "Failed to execute curl command"
-else
+# if [ $? -ne 0 ]; then
+#   log_error "Failed to execute curl command"
+# else
   # Append the output of curl to the log file
   echo "$curl_output" >> "$log_file"
-fi
+# fi
 
 exit 0
 
