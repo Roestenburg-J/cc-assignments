@@ -2,7 +2,8 @@
 
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y docker.io && \
+RUN apt-get update && \
+    apt-get install -y docker.io && \
     mkdir -p /usr/src/assignment && \
     touch /usr/src/assignment/log.txt
 
