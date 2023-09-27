@@ -14,8 +14,8 @@ fi
 topic="$1"
 
 docker build \
-    -f assignment/Dockerfile_producer \
-    -t image/experiment-producer ./assignment 
+    -f /.Dockerfile \
+    -t image/experiment-producer ./build 
 
 
 for i in 1 2 3
