@@ -20,6 +20,6 @@ docker build -t image/simple-consumer .
 docker run \
     --rm \
     -d \
-    --name image/simple-consumer \
+    --name simple-consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
     image/simple-consumer "$topic"
