@@ -15,11 +15,11 @@ fi
 
 topic="$1"
 
-docker build -t simple-consumer .
+docker build -t image/simple-consumer .
 
 docker run \
     --rm \
     -d \
-    --name simple_consumer \
+    --name image/simple_consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
-    consumer.py "$topic"
+    image/simple-consumer.py "$topic"
