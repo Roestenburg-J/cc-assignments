@@ -18,7 +18,7 @@ topic="$1"
 docker build -t image/simple-consumer .
 
 docker run \
-    --rm \
+    # --rm \
     -d \
     --name simple-consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
