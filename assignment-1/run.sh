@@ -9,5 +9,3 @@ docker run \
   --network assignment-1-network \
   image/shortlived-container:latest
 
-  
-
