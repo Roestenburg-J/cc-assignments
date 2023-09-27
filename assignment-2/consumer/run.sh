@@ -22,4 +22,4 @@ docker run \
     -d \
     --name image/simple_consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
-    image/simple-consumer.py "$topic"
+    image/simple-consumer "$topic"
