@@ -14,7 +14,7 @@ fi
 topic="$1"
 
 docker build \
-    -f ./Dockerfile \
+    -f ./build/Dockerfile \
     -t image/experiment-producer ./build 
 
 
