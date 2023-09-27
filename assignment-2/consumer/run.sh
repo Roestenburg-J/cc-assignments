@@ -2,7 +2,6 @@
 
 set -e
 
-
 USAGE="
 Usage: run.sh <topic>
 
@@ -16,7 +15,7 @@ fi
 
 topic="$1"
 
-docker build -t simple-consumer
+docker build -t simple-consumer .
 
 docker run \
     --rm \
