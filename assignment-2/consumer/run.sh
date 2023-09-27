@@ -16,18 +16,11 @@ fi
 
 topic="$1"
 
-docker build -t tkafka/simple simple_producer_consumer
+docker build -t simple-consumer
 
 docker run \
     --rm \
     -d \
     --name simple_consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
-    tkafka/simple consumer.py "$topic"
-
-docker run \
-    --rm \
-    -it \
-    --name simple_producer \
-    -v "$(pwd)/auth":/usr/src/app/auth \
-    tkafka/simple producer.py "$topic"
+    consumer.py "$topic"
