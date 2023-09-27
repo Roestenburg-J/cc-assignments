@@ -22,7 +22,7 @@ for i in 1 2 3
 do
     docker run \
         --rm \
-        -v $(pwd)/auth:/usr/src/cc-assignment-2023/experiment-producer/auth \
+        -v $(pwd)/build/auth:/usr/src/cc-assignment-2023/experiment-producer/auth \
         image/experiment-producer \
         --topic "$topic"
 done
