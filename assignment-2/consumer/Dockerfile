@@ -3,6 +3,7 @@ FROM python:3.8
 WORKDIR /usr/src/app
 
 COPY ./requirements.txt ./
+COPY ./schemas ./
 RUN pip install -r requirements.txt
 
 COPY ./*.py ./  
