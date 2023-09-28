@@ -14,7 +14,7 @@ def signal_handler(sig, frame):
 
 signal.signal(signal.SIGTERM, signal_handler)
 
-schema = avro.schema.parse(open("./schemas/experiment_schema.avsc", "rb").read())
+schema = avro.schema.parse(open("/experiment_schema.avsc", "rb").read())
 reader = DatumReader(schema)
 
 c = Consumer({
