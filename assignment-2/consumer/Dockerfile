@@ -9,4 +9,4 @@ COPY ./*.py ./
 
 VOLUME ["/usr/src/app/auth"]
 
-ENTRYPOINT ["python3", "-u"]
+ENTRYPOINT ["consumer.py", "-u"]
