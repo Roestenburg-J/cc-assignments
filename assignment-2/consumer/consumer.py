@@ -46,8 +46,10 @@ expr_schema = {
 }
 
 # schema = avro.schema.parse(open("./schemas/experiment_schema.avsc", "rb").read())
-schema = avro.schema.parse(expr_schema)
-reader = DatumReader(schema)
+# schema = avro.schema.parse(expr_schema)
+# reader = DatumReader(schema)
+reader = DatumReader(expr_schema)
+
 
 c = Consumer({
     'bootstrap.servers': '13.49.128.80:19093',
