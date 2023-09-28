@@ -16,7 +16,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGTERM, signal_handler)
 
 schema = avro.schema.parse(open("./experiment_schema.avsc", "rb").read())
-writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
+# writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
 
 reader = DatumReader(schema)
 
@@ -56,11 +56,7 @@ def consume(topic: str):
         if msg.error():
             print("Consumer error: {}".format(msg.error()))
             continue
-        # avro_bytes = BytesIO(msg.value())
-        # avro_reader = avro.io.BinaryDecoder(avro_bytes)
-        msg_value = {msg.value()}
-       
-        # print(msg_value)
+        msg_value = msg.value()
         event_dict = decode(msg_value)
         print(event_dict)
      
