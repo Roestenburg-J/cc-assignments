@@ -49,7 +49,7 @@ def consume(topic: str):
     )
 
     while True:
-        msg = c.poll(1.0)
+        msg = c.poll()
         
         if msg is None:
             continue
