@@ -21,4 +21,5 @@ docker run \
     --rm \
     --name simple-consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
+    -v "$(pwd)/schemas":/usr/src/app/schemas \
     image/simple-consumer consume "$topic"

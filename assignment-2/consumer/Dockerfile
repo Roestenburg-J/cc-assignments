@@ -9,5 +9,6 @@ RUN pip install -r requirements.txt
 COPY ./*.py ./  
 
 VOLUME ["/usr/src/app/auth"]
+VOLUME ["/usr/src/app/schemas"]
 
 ENTRYPOINT ["python3", "-u", "consumer.py"]  
