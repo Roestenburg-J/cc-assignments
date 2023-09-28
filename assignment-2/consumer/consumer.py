@@ -59,8 +59,9 @@ def consume(topic: str):
         # avro_bytes = BytesIO(msg.value())
         # avro_reader = avro.io.BinaryDecoder(avro_bytes)
         msg_value = msg.value()
-        event_dict = decode(msg_value)
-        print(event_dict)
+        print(msg_value)
+        # event_dict = decode(msg_value)
+        # print(event_dict)
      
         
 
