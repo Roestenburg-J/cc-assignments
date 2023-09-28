@@ -9,7 +9,7 @@ Usage: run.sh <topic>
 "
 
 if ! (( $# > 0 )); then
-    echo $USAGE
+    echo "$USAGE"
     exit -1
 fi
 
@@ -21,4 +21,4 @@ docker run \
     --rm \
     --name simple-consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
-    image/simple-consumer "$topic"
+    image/simple-consumer consume "$topic"
