@@ -21,5 +21,5 @@ docker run \
     --rm \
     --name simple-consumer \
     -v "$(pwd)/auth":/usr/src/app/auth \
-    image/simple-consumer\
+    image/simple-consumer
   
