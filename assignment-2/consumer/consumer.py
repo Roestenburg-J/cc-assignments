@@ -14,41 +14,9 @@ def signal_handler(sig, frame):
 
 signal.signal(signal.SIGTERM, signal_handler)
 
-expr_schema = {
-  "type": "record",
-  "name": "sensor_temperature_measured",
-  "fields": [
-    {
-      "name": "experiment",
-      "type": "string"
-    },
-    {
-      "name": "sensor",
-      "type": "string"
-    },
-    {
-      "name": "measurement_id",
-      "type": "string"
-    },
-    {
-      "name": "timestamp",
-      "type": "double"
-    },
-    {
-      "name": "temperature",
-      "type": "float"
-    },
-    {
-      "name": "measurement_hash",
-      "type": "string"
-    }
-  ]
-}
+schema = avro.schema.parse(open("./schemas/experiment_schema.avsc", "rb").read())
+reader = DatumReader(schema)
 
-# schema = avro.schema.parse(open("./schemas/experiment_schema.avsc", "rb").read())
-# schema = avro.schema.parse(expr_schema)
-# reader = DatumReader(schema)
-reader = DatumReader(expr_schema)
 
 
 c = Consumer({
