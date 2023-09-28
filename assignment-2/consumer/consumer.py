@@ -3,7 +3,7 @@ import click
 import random
 import avro.schema
 from avro.datafile import DataFileReader, DataFileWriter
-from avro.io import DatumReader, BinaryDecoder
+from avro.io import DatumReader, BinaryDecoder, DatumWriter
 import io
 
 from confluent_kafka import Consumer
@@ -16,7 +16,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGTERM, signal_handler)
 
 schema = avro.schema.parse(open("./experiment_schema.avsc", "rb").read())
-# writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
+writer = DataFileWriter(open("users.avro", "wb"), DatumWriter(), schema)
 
 reader = DatumReader(schema)
 
@@ -58,10 +58,11 @@ def consume(topic: str):
             continue
         # avro_bytes = BytesIO(msg.value())
         # avro_reader = avro.io.BinaryDecoder(avro_bytes)
-        msg_value = msg.value()
-        print(msg)
-        # event_dict = decode(msg_value)
-        # print(event_dict)
+        msg_value = {msg.value()}
+       
+        # print(msg_value)
+        event_dict = decode(msg_value)
+        print(event_dict)
      
         
 
