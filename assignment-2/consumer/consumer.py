@@ -46,7 +46,7 @@ expr_schema = {
 }
 
 # schema = avro.schema.parse(open("./schemas/experiment_schema.avsc", "rb").read())
-schema = avro.shema.parse(expr_schema)
+schema = avro.schema.parse(expr_schema)
 reader = DatumReader(schema)
 
 c = Consumer({
