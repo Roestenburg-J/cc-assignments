@@ -23,10 +23,11 @@ reader = DatumReader(schema)
 def decode(msg_value):
     message_bytes = io.BytesIO(msg_value)
     # print(message_bytes)
-    decoder = BinaryDecoder(message_bytes)
+    # decoder = BinaryDecoder(message_bytes)
     # print(decoder)
-    event_dict = reader.read(decoder)
-    return event_dict
+    # event_dict = reader.read(decoder)
+    reader = DataFileReader((message_bytes), DatumReader())
+    return reader
 
 c = Consumer({
     'bootstrap.servers': '13.49.128.80:19093',
@@ -60,7 +61,11 @@ def consume(topic: str):
             continue
         msg_value = msg.value()
         event_dict = decode(msg_value)
-        print(event_dict)
+        for msg in event_dict:
+          print(msg) 
+       
+        
+        
      
         
 
