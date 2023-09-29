@@ -60,8 +60,10 @@ def consume(topic: str):
             print("Consumer error: {}".format(msg.error()))
             continue
         msg_value = msg.value()
+        msg_headers = dict(msg.headers())
         event_dict = decode(msg_value)
         for msg in event_dict:
+          print(msg_headers["record_name"])
           print(msg) 
        
         
