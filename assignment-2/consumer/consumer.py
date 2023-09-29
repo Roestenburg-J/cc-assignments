@@ -22,6 +22,7 @@ reader = DatumReader(schema)
 
 def decode(msg_value):
     message_bytes = io.BytesIO(msg_value)
+    message_bytes.seek(5)
     print(message_bytes)
     decoder = BinaryDecoder(message_bytes)
     print(decoder)
