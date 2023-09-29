@@ -22,12 +22,12 @@ reader = DatumReader(schema)
 
 def decode(msg_value):
     message_bytes = io.BytesIO(msg_value)
-    message_bytes.seek(5)
     print(message_bytes)
     decoder = BinaryDecoder(message_bytes)
     print(decoder)
-    event_dict = reader.read(decoder)
-    print(event_dict)
+    return decoder
+    # event_dict = reader.read(decoder)
+    # print(event_dict)
     # return event_dict
 
 c = Consumer({
@@ -62,7 +62,7 @@ def consume(topic: str):
             continue
         msg_value = msg.value()
         event_dict = decode(msg_value)
-        # print(event_dict)
+        print(event_dict)
      
         
 
