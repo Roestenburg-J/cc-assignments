@@ -25,7 +25,8 @@ def decode(msg_value):
     print(message_bytes)
     decoder = BinaryDecoder(message_bytes)
     print(decoder)
-    # event_dict = reader.read(decoder)
+    event_dict = reader.read(decoder)
+    print(event_dict)
     # return event_dict
 
 c = Consumer({
