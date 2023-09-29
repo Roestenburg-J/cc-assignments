@@ -22,13 +22,11 @@ reader = DatumReader(schema)
 
 def decode(msg_value):
     message_bytes = io.BytesIO(msg_value)
-    print(message_bytes)
+    # print(message_bytes)
     decoder = BinaryDecoder(message_bytes)
-    print(decoder)
-    return decoder
-    # event_dict = reader.read(decoder)
-    # print(event_dict)
-    # return event_dict
+    # print(decoder)
+    event_dict = reader.read(decoder)
+    return event_dict
 
 c = Consumer({
     'bootstrap.servers': '13.49.128.80:19093',
